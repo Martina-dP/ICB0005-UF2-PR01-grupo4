@@ -4,6 +4,9 @@ public class Main {
         Vehiculo miVehiculo = new Vehiculo("Toyota", "Corolla", 180, 0);
         miVehiculo.estadoCoche(true); // Enciende
         miVehiculo.estadoCoche(false); // Apaga
+        miVehiculo.acelerar(30);  // Acelera a 30
+        miVehiculo.acelerar(160); // Llega al máximo (180)
+        miVehiculo.acelerar(10); // No permite acelerar estando apagado
     }
 
     class Vehiculo {
@@ -82,15 +85,36 @@ public class Main {
         }
 
         public void stateCar(boolean encender) {
-    if (encender) {
-        this.encendido = true;
-        System.out.println("Vehículo encendido.");
-    } else {
-        this.encendido = false;
-        velocidadActual = 0;
-        System.out.println("Vehículo apagado.");
-    }
-}
+            if (encender) {
+                this.encendido = true;
+                System.out.println("Vehículo encendido.");
+            } else {
+                this.encendido = false;
+                velocidadActual = 0;
+                System.out.println("Vehículo apagado.");
+            }
+        }
+
+        public void speedUp(int incremento) {
+            if (encendido == false) {
+                System.out.println("No se puede acelerar. El vehículo está apagado.");
+                return;
+            }
+
+            if (incremento <= 0) {
+                System.out.println("El incremento debe ser mayor a cero.");
+                return;
+            }
+
+            velocidadActual += incremento;
+
+            if (velocidadActual > velocidad_maxima) {
+                velocidadActual = velocidad_maxima;
+                System.out.println("¡Has alcanzado la velocidad máxima permitida! Velocidad actual: " + velocidadActual + " km/h");
+            } else {
+                System.out.println("Acelerando... Velocidad actual: " + velocidadActual + " km/h");
+            }
+        }
 
         @Override
         public String toString() {
