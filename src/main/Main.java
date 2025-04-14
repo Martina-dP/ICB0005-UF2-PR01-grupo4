@@ -1,6 +1,9 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
+        Vehiculo miVehiculo = new Vehiculo("Toyota", "Corolla", 180, 0);
+        miVehiculo.estadoCoche(true); // Enciende
+        miVehiculo.estadoCoche(false); // Apaga
     }
 
     class Vehiculo {
@@ -77,6 +80,17 @@ public class Main {
         public void setNecesitaRepostar(boolean necesitaRepostar) {
             this.necesitaRepostar = necesitaRepostar;
         }
+
+        public void stateCar(boolean encender) {
+    if (encender) {
+        this.encendido = true;
+        System.out.println("Vehículo encendido.");
+    } else {
+        this.encendido = false;
+        velocidadActual = 0;
+        System.out.println("Vehículo apagado.");
+    }
+}
 
         @Override
         public String toString() {
