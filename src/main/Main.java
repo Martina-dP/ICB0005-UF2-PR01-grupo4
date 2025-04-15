@@ -95,6 +95,7 @@ public class Main {
             }
         }
 
+
         public void speedUp(int incremento) {
             if (encendido == false) {
                 System.out.println("No se puede acelerar. El vehículo está apagado.");
