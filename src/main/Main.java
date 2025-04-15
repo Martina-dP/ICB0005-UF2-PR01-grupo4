@@ -95,7 +95,6 @@ public class Main {
             }
         }
 
-
         public void speedUp(int incremento) {
             if (encendido == false) {
                 System.out.println("No se puede acelerar. El vehículo está apagado.");
@@ -116,6 +115,8 @@ public class Main {
                 System.out.println("Acelerando... Velocidad actual: " + velocidadActual + " km/h");
             }
         }
+
+
 
         @Override
         public String toString() {
