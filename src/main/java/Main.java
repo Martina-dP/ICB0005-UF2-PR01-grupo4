@@ -2,14 +2,14 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         Vehiculo miVehiculo = new Vehiculo("Toyota", "Corolla", 180, 0);
-        miVehiculo.estadoCoche(true); // Enciende
-        miVehiculo.estadoCoche(false); // Apaga
-        miVehiculo.acelerar(30);  // Acelera a 30
-        miVehiculo.acelerar(160); // Llega al máximo (180)
-        miVehiculo.acelerar(10); // No permite acelerar estando apagado
+        miVehiculo.stateCar(true); // Enciende
+        miVehiculo.stateCar(false); // Apaga
+        miVehiculo.speedUp(30);  // Acelera a 30
+        miVehiculo.speedUp(160); // Llega al máximo (180)
+        miVehiculo.speedUp(10); // No permite acelerar estando apagado
     }
 
-    class Vehiculo {
+    static class Vehiculo {
         private String marca;
         private String modelo;
         private int velocidad_maxima;
@@ -115,8 +115,6 @@ public class Main {
                 System.out.println("Acelerando... Velocidad actual: " + velocidadActual + " km/h");
             }
         }
-
-
 
         @Override
         public String toString() {
