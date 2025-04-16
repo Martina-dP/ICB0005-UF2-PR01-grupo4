@@ -5,14 +5,14 @@ class StateCarTest {
 
     @Test
     void testStateCarEncender() {
-        Main.Vehiculo vehiculo = new Main().new Vehiculo("Toyota", "Corolla", 180, 0);
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
         vehiculo.stateCar(true);
         assertTrue(vehiculo.isEncendido());
     }
 
     @Test
     void testStateCarApagar() {
-        Main.Vehiculo vehiculo = new Main().new Vehiculo("Toyota", "Corolla", 180, 0);
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
         vehiculo.stateCar(true);
         vehiculo.stateCar(false);
         assertFalse(vehiculo.isEncendido());
@@ -24,14 +24,14 @@ class SpeedUpTest {
 
         @Test
         void testSpeedUpWhenCarIsOff() {
-            Main.Vehiculo vehiculo = new Main().new Vehiculo("Toyota", "Corolla", 180, 0);
+            Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
             vehiculo.speedUp(50);
             assertEquals(0, vehiculo.getVelocidadActual());
         }
     
         @Test
         void testSpeedUpWithNegativeIncrement() {
-            Main.Vehiculo vehiculo = new Main().new Vehiculo("Toyota", "Corolla", 180, 0);
+            Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
             vehiculo.stateCar(true);
             vehiculo.speedUp(-10);
             assertEquals(0, vehiculo.getVelocidadActual());
@@ -39,7 +39,7 @@ class SpeedUpTest {
     
         @Test
         void testSpeedUpWithinMaxLimit() {
-            Main.Vehiculo vehiculo = new Main().new Vehiculo("Toyota", "Corolla", 180, 0);
+            Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
             vehiculo.stateCar(true);
             vehiculo.speedUp(50);
             assertEquals(50, vehiculo.getVelocidadActual());
@@ -47,7 +47,7 @@ class SpeedUpTest {
     
         @Test
         void testSpeedUpExceedingMaxLimit() {
-            Main.Vehiculo vehiculo = new Main().new Vehiculo("Toyota", "Corolla", 180, 0);
+            Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
             vehiculo.stateCar(true);
             vehiculo.speedUp(200);
             assertEquals(180, vehiculo.getVelocidadActual());
