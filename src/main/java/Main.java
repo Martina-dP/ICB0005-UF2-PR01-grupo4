@@ -116,6 +116,10 @@ public class Main {
             }
         }
 
+        public void reverse(){
+            
+        }
+
         @Override
         public String toString() {
             return "Vehiculo{" +
