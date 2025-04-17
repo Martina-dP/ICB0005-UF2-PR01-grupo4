@@ -119,7 +119,7 @@ public class Main {
         public void reverse(){
             
         }
-
+        
         public void slowDown(int decremento) {
 
         }
