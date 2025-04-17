@@ -120,6 +120,10 @@ public class Main {
             
         }
 
+        public void slowDown(int decremento) {
+
+        }
+
         @Override
         public String toString() {
             return "Vehiculo{" +
