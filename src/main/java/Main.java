@@ -125,8 +125,16 @@ public class Main {
             if (decremento <= 0) {
                 System.out.println("El decremento debe ser mayor a cero.");
                 return;
-            }
 
+            }
+                velocidadActual -= decremento;
+
+                if (velocidadActual < velocidad_minima) {
+                    velocidadActual = velocidad_minima;
+                    System.out.println("Has alcanzado la velocidad mínima! Velocidad actual: " + velocidadActual + " km/h");
+                } else {
+                    System.out.println("Desacelerando... Velocidad actual: " + velocidadActual + " km/h");
+                }
         }
 
         @Override
