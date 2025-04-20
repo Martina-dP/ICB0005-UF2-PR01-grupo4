@@ -117,6 +117,15 @@ public class Main {
         }
 
         public void slowDown(int decremento) {
+            if (encendido == false) {
+                System.out.println("No se puede desacelerar. El vehículo está apagado.");
+                return;
+            }
+
+            if (decremento <= 0) {
+                System.out.println("El decremento debe ser mayor a cero.");
+                return;
+            }
 
         }
 
