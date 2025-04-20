@@ -116,8 +116,22 @@ public class Main {
             }
         }
 
-        public void reverse(){
-            
+        public void reverse(int velocidad) {
+            if (!encendido) {
+                System.out.println("No se puede ir en reversa. El vehículo está apagado.");
+                return;
+            }
+
+            if (velocidad <= 0) {
+                System.out.println("La velocidad debe ser mayor que cero para ir en reversa.");
+                return;
+            }
+
+            if (velocidadActual > 0) {
+                System.out.println("No puedes ir en reversa mientras estás avanzando.");
+                return;
+            }
+
         }
         
         public void slowDown(int decremento) {
