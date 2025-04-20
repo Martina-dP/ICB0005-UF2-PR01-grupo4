@@ -7,6 +7,7 @@ public class Main {
         miVehiculo.speedUp(30);  // Acelera a 30
         miVehiculo.speedUp(160); // Llega al máximo (180)
         miVehiculo.speedUp(10); // No permite acelerar estando apagado
+        miVehiculo.reverse(5);
     }
 
     static class Vehiculo {
