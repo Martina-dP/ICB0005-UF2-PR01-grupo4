@@ -63,3 +63,6 @@ class ReverseTest {
         vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
     }
 }
+
+class SlowDownTest {
+}
