@@ -118,12 +118,12 @@ public class Main {
 
         public void reverse(int velocidad) {
             if (!encendido) {
-                System.out.println("No se puede ir en reversa. El vehículo está apagado.");
+                System.out.println("No se puede retrodecer. El vehículo está apagado.");
                 return;
             }
 
             if (velocidad <= 0) {
-                System.out.println("La velocidad debe ser mayor que cero para ir en reversa.");
+                System.out.println("La velocidad para retrodecer debe ser mayor a cero.");
                 return;
             }
 
@@ -131,7 +131,18 @@ public class Main {
                 System.out.println("No puedes ir en reversa mientras estás avanzando.");
                 return;
             }
+            velocidadActual -= velocidad;
 
+            int nuevaVelocidad = velocidadActual - velocidad;
+            int limiteReverse = -20;
+
+            if (nuevaVelocidad < limiteReverse) {
+                velocidadActual = limiteReverse;
+                System.out.println("Has alcanzado la velocidad máxima en reversa: " + velocidadActual + " km/h");
+            } else {
+                velocidadActual = nuevaVelocidad;
+                System.out.println("Retrocediendo... Velocidad actual: " + velocidadActual + " km/h");
+            }
         }
         
         public void slowDown(int decremento) {
