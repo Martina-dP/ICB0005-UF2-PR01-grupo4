@@ -53,3 +53,13 @@ class SpeedUpTest {
             assertEquals(180, vehiculo.getVelocidadActual());
         }
 }
+
+class ReverseTest {
+
+    private Main.Vehiculo vehiculo;
+
+    @BeforeEach
+    void setUp() {
+        vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
+    }
+}
