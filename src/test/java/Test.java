@@ -66,4 +66,5 @@ class ReverseTest {
 }
 
 class SlowDownTest {
+    private Main.Vehiculo vehiculo;
 }
