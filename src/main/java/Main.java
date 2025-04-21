@@ -144,20 +144,20 @@ public class Main {
                 velocidadActual = nuevaVelocidad;
                 System.out.println("Retrocediendo... Velocidad actual: " + velocidadActual + " km/h");
             }
-        
-        public void slowDown(int decremento) {
-
         }
 
-        @Override
-        public String toString() {
-            return "Vehiculo{" +
-                    "marca='" + marca + '\'' +
-                    ", modelo='" + modelo + '\'' +
-                    ", encendido=" + encendido +
-                    ", velocidadActual=" + velocidadActual +
-                    ", necesitaRepostar=" + necesitaRepostar +
-                    '}';
+            public void slowDown (int decremento){
+        }
+
+            @Override
+            public String toString () {
+                return "Vehiculo{" +
+                        "marca='" + marca + '\'' +
+                        ", modelo='" + modelo + '\'' +
+                        ", encendido=" + encendido +
+                        ", velocidadActual=" + velocidadActual +
+                        ", necesitaRepostar=" + necesitaRepostar +
+                        '}';
+            }
         }
     }
-}
