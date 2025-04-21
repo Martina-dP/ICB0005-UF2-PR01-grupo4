@@ -144,7 +144,6 @@ public class Main {
                 velocidadActual = nuevaVelocidad;
                 System.out.println("Retrocediendo... Velocidad actual: " + velocidadActual + " km/h");
             }
-        }
         
         public void slowDown(int decremento) {
 
