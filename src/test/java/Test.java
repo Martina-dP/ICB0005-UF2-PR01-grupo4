@@ -66,5 +66,19 @@ class ReverseTest {
 }
 
 class SlowDownTest {
-    private Main.Vehiculo vehiculo;
+
+    @Test
+    void testSlowDownWhenCarIsOff() {
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
+        vehiculo.slowDown(10);
+        assertEquals(0, vehiculo.getVelocidadActual());
+    }
+
+    @Test
+    void testSlowDownWithNegativeDecrement() {
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
+        vehiculo.stateCar(true);
+        vehiculo.slowDown(-10);
+        assertEquals(0, vehiculo.getVelocidadActual());
+    }
 }
