@@ -81,4 +81,14 @@ class SlowDownTest {
         vehiculo.slowDown(-10);
         assertEquals(0, vehiculo.getVelocidadActual());
     }
+
+    @Test
+    void testSlowDownNormally() {
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
+        vehiculo.stateCar(true);
+        vehiculo.speedUp(50);
+        vehiculo.slowDown(20);
+        assertEquals(30, vehiculo.getVelocidadActual());
+    }
+
 }
