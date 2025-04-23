@@ -71,5 +71,28 @@ class ReverseTest {
         vehiculo.reverse(0);
         assertEquals(0, vehiculo.getVelocidadActual());
     }
+    @Test
+    void testReverseWhileMovingForward() {
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 10);
+        vehiculo.stateCar(true);
+        vehiculo.reverse(5);
+        assertEquals(10, vehiculo.getVelocidadActual());  // no debería permitir reversa
+    }
+
+    @Test
+    void testReverseNormally() {
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
+        vehiculo.stateCar(true);
+        vehiculo.reverse(10);
+        assertEquals(-10, vehiculo.getVelocidadActual());
+    }
+
+    @Test
+    void testReverseExceedingLimit() {
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, -15);
+        vehiculo.stateCar(true);
+        vehiculo.reverse(10);
+        assertEquals(-20, vehiculo.getVelocidadActual());
+    }
 }
 
