@@ -90,5 +90,4 @@ class SlowDownTest {
         vehiculo.slowDown(20);
         assertEquals(30, vehiculo.getVelocidadActual());
     }
-
 }
