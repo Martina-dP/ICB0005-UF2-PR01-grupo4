@@ -166,7 +166,7 @@ public class Main {
                 velocidadActual = nuevaVelocidad;
                 System.out.println("Retrocediendo... Velocidad actual: " + velocidadActual + " km/h");
             }
-          
+        }
             @Override
             public String toString () {
                 return "Vehiculo{" +
