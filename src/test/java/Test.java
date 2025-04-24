@@ -56,7 +56,6 @@ class SpeedUpTest {
 }
 
 class ReverseTest {
-
     @Test
     void testReverseWhenCarIsOff() {
         Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
@@ -95,4 +94,3 @@ class ReverseTest {
         assertEquals(-20, vehiculo.getVelocidadActual());
     }
 }
-
