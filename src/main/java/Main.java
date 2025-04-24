@@ -7,6 +7,7 @@ public class Main {
         miVehiculo.speedUp(30);  // Acelera a 30
         miVehiculo.speedUp(160); // Llega al máximo (180)
         miVehiculo.speedUp(10); // No permite acelerar estando apagado
+        miVehiculo.reverse(5);
     }
 
     static class Vehiculo {
@@ -116,23 +117,47 @@ public class Main {
             }
         }
 
-        public void reverse(){
-            
-        }
-        
-        public void slowDown(int decremento) {
+        public void reverse(int velocidad) {
+            if (!encendido) {
+                System.out.println("No se puede retrodecer. El vehículo está apagado.");
+                return;
+            }
 
+            if (velocidad <= 0) {
+                System.out.println("La velocidad para retrodecer debe ser mayor a cero.");
+                return;
+            }
+
+            if (velocidadActual > 0) {
+                System.out.println("No puedes ir en reversa mientras estás avanzando.");
+                return;
+            }
+            velocidadActual -= velocidad;
+
+            int nuevaVelocidad = velocidadActual - velocidad;
+            int limiteReverse = -20;
+
+            if (nuevaVelocidad < limiteReverse) {
+                velocidadActual = limiteReverse;
+                System.out.println("Has alcanzado la velocidad máxima en reversa: " + velocidadActual + " km/h");
+            } else {
+                velocidadActual = nuevaVelocidad;
+                System.out.println("Retrocediendo... Velocidad actual: " + velocidadActual + " km/h");
+            }
         }
 
-        @Override
-        public String toString() {
-            return "Vehiculo{" +
-                    "marca='" + marca + '\'' +
-                    ", modelo='" + modelo + '\'' +
-                    ", encendido=" + encendido +
-                    ", velocidadActual=" + velocidadActual +
-                    ", necesitaRepostar=" + necesitaRepostar +
-                    '}';
+            public void slowDown (int decremento){
+        }
+
+            @Override
+            public String toString () {
+                return "Vehiculo{" +
+                        "marca='" + marca + '\'' +
+                        ", modelo='" + modelo + '\'' +
+                        ", encendido=" + encendido +
+                        ", velocidadActual=" + velocidadActual +
+                        ", necesitaRepostar=" + necesitaRepostar +
+                        '}';
+            }
         }
     }
-}
