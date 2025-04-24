@@ -90,7 +90,7 @@ class ReverseTest {
     void testReverseExceedingLimit() {
         Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, -15);
         vehiculo.stateCar(true);
-        vehiculo.reverse(10);
+        vehiculo.reverse(30);
         assertEquals(-20, vehiculo.getVelocidadActual());
     }
 }
