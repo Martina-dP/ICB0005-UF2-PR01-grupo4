@@ -2,14 +2,16 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         Vehiculo miVehiculo = new Vehiculo("Toyota", "Corolla", 180, 0);
-        miVehiculo.estadoCoche(true); // Enciende
-        miVehiculo.estadoCoche(false); // Apaga
-        miVehiculo.acelerar(30);  // Acelera a 30
-        miVehiculo.acelerar(160); // Llega al máximo (180)
-        miVehiculo.acelerar(10); // No permite acelerar estando apagado
+        miVehiculo.stateCar(true); // Enciende
+        miVehiculo.stateCar(false); // Apaga
+        miVehiculo.speedUp(30);  // Acelera a 30
+        miVehiculo.speedUp(160); // Llega al máximo (180)
+        miVehiculo.speedUp(10); // No permite acelerar estando apagado
+        miVehiculo.slowDown(20);
+        miVehiculo.reverse(5);
     }
 
-    class Vehiculo {
+    static class Vehiculo {
         private String marca;
         private String modelo;
         private int velocidad_maxima;
@@ -95,7 +97,6 @@ public class Main {
             }
         }
 
-
         public void speedUp(int incremento) {
             if (encendido == false) {
                 System.out.println("No se puede acelerar. El vehículo está apagado.");
@@ -117,15 +118,64 @@ public class Main {
             }
         }
 
-        @Override
-        public String toString() {
-            return "Vehiculo{" +
-                    "marca='" + marca + '\'' +
-                    ", modelo='" + modelo + '\'' +
-                    ", encendido=" + encendido +
-                    ", velocidadActual=" + velocidadActual +
-                    ", necesitaRepostar=" + necesitaRepostar +
-                    '}';
+        public void slowDown(int decremento) {
+            if (encendido == false) {
+                System.out.println("No se puede desacelerar. El vehículo está apagado.");
+                return;
+            }
+
+            if (decremento <= 0) {
+                System.out.println("El decremento debe ser mayor a cero.");
+                return;
+
+            }
+                velocidadActual -= decremento;
+
+                if (velocidadActual < velocidad_minima) {
+                    velocidadActual = velocidad_minima;
+                    System.out.println("Has alcanzado la velocidad mínima! Velocidad actual: " + velocidadActual + " km/h");
+                } else {
+                    System.out.println("Desacelerando... Velocidad actual: " + velocidadActual + " km/h");
+                }
+        }
+
+        public void reverse(int velocidad) {
+            if (!encendido) {
+                System.out.println("No se puede retrodecer. El vehículo está apagado.");
+                return;
+            }
+
+            if (velocidad <= 0) {
+                System.out.println("La velocidad para retrodecer debe ser mayor a cero.");
+                return;
+            }
+
+            if (velocidadActual > 0) {
+                System.out.println("No puedes ir en reversa mientras estás avanzando.");
+                return;
+            }
+            velocidadActual -= velocidad;
+
+            int nuevaVelocidad = velocidadActual - velocidad;
+            int limiteReverse = -20;
+
+            if (nuevaVelocidad < limiteReverse) {
+                velocidadActual = limiteReverse;
+                System.out.println("Has alcanzado la velocidad máxima en reversa: " + velocidadActual + " km/h");
+            } else {
+                velocidadActual = nuevaVelocidad;
+                System.out.println("Retrocediendo... Velocidad actual: " + velocidadActual + " km/h");
+            }
+        }
+            @Override
+            public String toString () {
+                return "Vehiculo{" +
+                        "marca='" + marca + '\'' +
+                        ", modelo='" + modelo + '\'' +
+                        ", encendido=" + encendido +
+                        ", velocidadActual=" + velocidadActual +
+                        ", necesitaRepostar=" + necesitaRepostar +
+                        '}';
+            }
         }
     }
-}
