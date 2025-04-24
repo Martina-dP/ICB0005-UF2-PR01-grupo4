@@ -71,7 +71,7 @@ class ReverseTest {
     }
     @Test
     void testReverseWhileMovingForward() {
-        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 10);
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
         vehiculo.stateCar(true);
         vehiculo.speedUp(5);
         vehiculo.reverse(5);
