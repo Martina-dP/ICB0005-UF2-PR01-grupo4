@@ -1,5 +1,4 @@
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class StateCarTest {
@@ -53,8 +52,9 @@ class SpeedUpTest {
             vehiculo.speedUp(200);
             assertEquals(180, vehiculo.getVelocidadActual());
         }
-}
 
+
+}
 class ReverseTest {
     @Test
     void testReverseWhenCarIsOff() {
@@ -62,7 +62,6 @@ class ReverseTest {
         vehiculo.reverse(10);
         assertEquals(0, vehiculo.getVelocidadActual());
     }
-
     @Test
     void testReverseWithZeroSpeed() {
         Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
@@ -74,8 +73,9 @@ class ReverseTest {
     void testReverseWhileMovingForward() {
         Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 10);
         vehiculo.stateCar(true);
+        vehiculo.speedUp(5);
         vehiculo.reverse(5);
-        assertEquals(10, vehiculo.getVelocidadActual());  // no debería permitir reversa
+        assertEquals(5, vehiculo.getVelocidadActual());  // no debería permitir reversa
     }
 
     @Test

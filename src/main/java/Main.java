@@ -154,7 +154,6 @@ public class Main {
                 System.out.println("No puedes ir en reversa mientras estás avanzando.");
                 return;
             }
-            velocidadActual -= velocidad;
 
             int nuevaVelocidad = velocidadActual - velocidad;
             int limiteReverse = -20;
