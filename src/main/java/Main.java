@@ -7,6 +7,7 @@ public class Main {
         miVehiculo.speedUp(30);  // Acelera a 30
         miVehiculo.speedUp(160); // Llega al máximo (180)
         miVehiculo.speedUp(10); // No permite acelerar estando apagado
+        miVehiculo.slowDown(20);
         miVehiculo.reverse(5);
     }
 
@@ -117,6 +118,27 @@ public class Main {
             }
         }
 
+        public void slowDown(int decremento) {
+            if (encendido == false) {
+                System.out.println("No se puede desacelerar. El vehículo está apagado.");
+                return;
+            }
+
+            if (decremento <= 0) {
+                System.out.println("El decremento debe ser mayor a cero.");
+                return;
+
+            }
+                velocidadActual -= decremento;
+
+                if (velocidadActual < velocidad_minima) {
+                    velocidadActual = velocidad_minima;
+                    System.out.println("Has alcanzado la velocidad mínima! Velocidad actual: " + velocidadActual + " km/h");
+                } else {
+                    System.out.println("Desacelerando... Velocidad actual: " + velocidadActual + " km/h");
+                }
+        }
+
         public void reverse(int velocidad) {
             if (!encendido) {
                 System.out.println("No se puede retrodecer. El vehículo está apagado.");
@@ -145,10 +167,6 @@ public class Main {
                 System.out.println("Retrocediendo... Velocidad actual: " + velocidadActual + " km/h");
             }
         }
-
-            public void slowDown (int decremento){
-        }
-
             @Override
             public String toString () {
                 return "Vehiculo{" +
