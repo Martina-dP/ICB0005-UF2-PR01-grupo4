@@ -1,6 +1,4 @@
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class StateCarTest {
@@ -54,14 +52,45 @@ class SpeedUpTest {
             vehiculo.speedUp(200);
             assertEquals(180, vehiculo.getVelocidadActual());
         }
+
+
 }
-
 class ReverseTest {
+    @Test
+    void testReverseWhenCarIsOff() {
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
+        vehiculo.reverse(10);
+        assertEquals(0, vehiculo.getVelocidadActual());
+    }
+    @Test
+    void testReverseWithZeroSpeed() {
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
+        vehiculo.stateCar(true);
+        vehiculo.reverse(0);
+        assertEquals(0, vehiculo.getVelocidadActual());
+    }
+    @Test
+    void testReverseWhileMovingForward() {
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
+        vehiculo.stateCar(true);
+        vehiculo.speedUp(5);
+        vehiculo.reverse(5);
+        assertEquals(5, vehiculo.getVelocidadActual());  // no debería permitir reversa
+    }
 
-    private Main.Vehiculo vehiculo;
+    @Test
+    void testReverseNormally() {
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
+        vehiculo.stateCar(true);
+        vehiculo.reverse(10);
+        assertEquals(-10, vehiculo.getVelocidadActual());
+    }
 
-    @BeforeEach
-    void setUp() {
-        vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, 0);
+    @Test
+    void testReverseExceedingLimit() {
+        Main.Vehiculo vehiculo = new Main.Vehiculo("Toyota", "Corolla", 180, -15);
+        vehiculo.stateCar(true);
+        vehiculo.reverse(30);
+        assertEquals(-20, vehiculo.getVelocidadActual());
     }
 }
